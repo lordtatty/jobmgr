@@ -9,7 +9,7 @@ type LogTask struct {
 }
 
 func (l *LogTask) Run() jobmgr.TaskResult {
-	log.Println(l.Message)
+    log.Println(l.Message)
     r := jobmgr.NewResult()
     r.AddValue("message", message)
     r.AddValye("via", "logger")
