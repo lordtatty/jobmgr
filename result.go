@@ -1,14 +1,9 @@
 package jobmgr
 
 type Result struct {
-	data    map[string]string
+	values  []string
+	headers []string
 	success bool
-}
-
-func NewResult() *Result {
-	return &Result{
-		data: make(map[string]string),
-	}
 }
 
 func (r *Result) Success() bool {
@@ -20,25 +15,14 @@ func (r *Result) SetSuccess(success bool) {
 }
 
 func (r *Result) AddValue(key, value string) {
-	r.data[key] = value
+	r.headers = append(r.headers, key)
+	r.values = append(r.values, value)
 }
 
 func (r *Result) AuditHeaders() []string {
-	headers := make([]string, len(r.data))
-	i := 0
-	for k := range r.data {
-		headers[i] = k
-		i++
-	}
-	return headers
+	return r.headers
 }
 
 func (r *Result) Audit() []string {
-	values := make([]string, len(r.data))
-	i := 0
-	for _, v := range r.data {
-		values[i] = v
-		i++
-	}
-	return values
+	return r.values
 }

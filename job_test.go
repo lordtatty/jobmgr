@@ -93,10 +93,10 @@ func TestStartHappyPathWithAudit(t *testing.T) {
 	}
 
 	// Set up tasks and task results
-	result := jobmgr.NewResult()
+	result := &jobmgr.Result{}
 	result.AddValue("KeyOne", "ValueOne")
 	result.AddValue("KeyTwo", "ValueOne")
-	result2 := jobmgr.NewResult()
+	result2 := &jobmgr.Result{}
 	result2.AddValue("KeyOne", "ValueTwo")
 	result2.AddValue("KeyTwo", "ValueTwo")
 	task := &testTask{}

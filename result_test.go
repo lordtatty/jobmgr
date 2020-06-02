@@ -9,13 +9,13 @@ import (
 
 func TestNewResult(t *testing.T) {
 	assert := assert.New(t)
-	r := jobmgr.NewResult()
+	r := &jobmgr.Result{}
 	assert.IsType(&jobmgr.Result{}, r)
 }
 
 func TestResultSuccess(t *testing.T) {
 	assert := assert.New(t)
-	r := jobmgr.NewResult()
+	r := &jobmgr.Result{}
 	assert.False(r.Success())
 	r.SetSuccess(true)
 	assert.True(r.Success())
@@ -25,7 +25,7 @@ func TestResultSuccess(t *testing.T) {
 
 func TestResultAuditHeaders(t *testing.T) {
 	assert := assert.New(t)
-	r := jobmgr.NewResult()
+	r := &jobmgr.Result{}
 	r.AddValue("KeyOne", "ValueOne")
 	r.AddValue("KeyTwo", "ValueTwo")
 	expected := []string{"KeyOne", "KeyTwo"}
@@ -34,7 +34,7 @@ func TestResultAuditHeaders(t *testing.T) {
 
 func TestResultAudit(t *testing.T) {
 	assert := assert.New(t)
-	r := jobmgr.NewResult()
+	r := &jobmgr.Result{}
 	r.AddValue("KeyOne", "ValueOne")
 	r.AddValue("KeyTwo", "ValueTwo")
 	expected := []string{"ValueOne", "ValueTwo"}

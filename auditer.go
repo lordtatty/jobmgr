@@ -25,7 +25,7 @@ func (c *CsvAuditer) Write(t TaskAudit) error {
 		err = c.writeln(t.AuditHeaders())
 	})
 	if err != nil {
-		return nil
+		return err
 	}
 	return c.writeln(t.Audit())
 }

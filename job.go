@@ -2,7 +2,6 @@ package jobmgr
 
 import (
 	"context"
-	"log"
 	"time"
 )
 
@@ -81,7 +80,6 @@ func (j *Job) Start(ctx context.Context) error {
 		}
 		select {
 		case <-ctx.Done():
-			log.Println("here")
 			return nil
 		case t, more := <-j.taskQueue:
 			if !more {
