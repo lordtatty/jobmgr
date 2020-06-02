@@ -1,6 +1,10 @@
+[![Build Status](https://travis-ci.org/lordtatty/jobmgr.svg?branch=master)](https://travis-ci.org/lordtatty/jobmgr)
+
 A Simple golang Job Manager
 
 !!Consider this in alpha at the moment, subject to breaking changes as it gets used in real-life projects.  But the intention is to stabilise quickly.
+
+Conceptually this is designed for bulk jobs of discrete tasks.  For example a large bulk data change, which will expect x number of tasks, work through theme, and provide an audit trail.
 
 Create a simple task
 ```go
