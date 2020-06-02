@@ -10,7 +10,7 @@ import (
 func TestNewResult(t *testing.T) {
 	assert := assert.New(t)
 	r := jobmgr.NewResult()
-	assert.IsType(jobmgr.Result{}, r)
+	assert.IsType(&jobmgr.Result{}, r)
 }
 
 func TestResultSuccess(t *testing.T) {
