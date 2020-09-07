@@ -31,7 +31,14 @@ jobs:
         fi
 
     - name: Build
-      run: go build -v .
+      run: make build
 
     - name: Test
       run: go test -v .
+    
+    - run: echo hello > ./world.txt
+    
+    - uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: path/to/artifact/world.txt
